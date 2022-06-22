@@ -80,8 +80,6 @@ export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || pr
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-# ~/.yarn/bin
-#export PATH=$PATH:~/.yarn/bin
-# node_modules
-export PATH=$PATH:./node_modules/.bin
-
+# Android SDK
+export ANDROID_SDK=/Users/i.nagashima/Library/Android/sdk
+export PATH=$PATH:/Users/i.nagashima/Library/Android/sdk/platform-tools

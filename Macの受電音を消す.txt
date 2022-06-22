@@ -1,0 +1,4 @@
+Macの受電音を消す
+
+% defaults write com.apple.PowerChime ChimeOnNoHardware -bool true
+% killall PowerChime
