@@ -4,7 +4,7 @@ autoload -Uz vcs_info
 precmd_vcs_info() { vcs_info }
 precmd_functions+=( precmd_vcs_info )
 setopt prompt_subst
-PROMPT='%{$fg[green]%}%n@%m %{$fg[cyan]%}[%*}] %{${reset_color}%}[%~] %{$fg[green]%}[$vcs_info_msg_0_]
+PROMPT='%{$fg[green]%}%n@%m %{$fg[cyan]%}[%*] %{${reset_color}%}[%~] %{$fg[green]%}[$vcs_info_msg_0_]
 %{${reset_color}%}-> %# '
 zstyle ':vcs_info:git:*' formats '%b'
 
@@ -12,12 +12,11 @@ zstyle ':vcs_info:git:*' formats '%b'
 autoload -U compinit && compinit -u
 
 # エイリアス
-alias h='history'
+alias h='history 1'
+#alias hall='history 1'
 alias vi='vim'
 alias c='clear'
 alias desk='cd ~/Desktop'
-alias project='cd ~/Desktop/project'
-alias study='cd ~/Desktop/project/zz.study'
 
 # 色を使用出来るようにする
 autoload -Uz colors
@@ -80,6 +79,30 @@ export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || pr
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
+# ~/.yarn/bin
+#export PATH=$PATH:~/.yarn/bin
+# node_modules
+#export PATH=$PATH:./node_modules/.bin
+
 # Android SDK
 export ANDROID_SDK=/Users/i.nagashima/Library/Android/sdk
+export ANDROID_SDK_ROOT=/Users/i.nagashima/Library/Android/sdk
 export PATH=$PATH:/Users/i.nagashima/Library/Android/sdk/platform-tools
+# Android NDK
+export ANDROID_NDK_HOME=/Users/i.nagashima/Library/Android/sdk/ndk
+
+# flutter
+export PATH=$PATH:/Users/i.nagashima/.fvm/flutter_sdk/bin
+
+# gnubin
+export PATH=$PATH:/usr/local/opt/coreutils/libexec/gnubin
+
+# エイリアス hitohaco-order
+alias hitohaco='cd ~/Desktop/jfd/src/hitohaco-order'
+alias common='cd ~/Desktop/jfd/src/hitohaco-order/packages/common'
+alias zzest='cd ~/Desktop/jfd/src/hitohaco-order/packages/zzest'
+alias h-pull='git pull origin develop/ver.1.2'
+#alias h-checkout='git checkout develop/phase1'
+
+# エイリアス society
+alias s-src='cd /Users/i.nagashima/Desktop/project/06.climb/01.society/src'
