@@ -1,4 +1,3 @@
-
 # プロンプト
 autoload -Uz vcs_info
 precmd_vcs_info() { vcs_info }
@@ -74,15 +73,19 @@ setopt pushd_ignore_dups
 git config --global color.ui auto
 
 
-# nvm
-export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+# rbenv
+[[ -d ~/.rbenv  ]] && \
+export PATH=${PATH}:${HOME}/.rbenv/bin && \
+eval "$(rbenv init -)"
 
-# ~/.yarn/bin
-#export PATH=$PATH:~/.yarn/bin
-# node_modules
-#export PATH=$PATH:./node_modules/.bin
+# nvm
+export NVM_DIR="$HOME/.nvm"
+[ -s "/usr/local/opt/nvm/nvm.sh" ] && \. "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
+[ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
+
+# java
+export JAVA_HOME=`/usr/libexec/java_home -v 11`
+export PATH=$PATH:$JAVA_HOME/bin
 
 # Android SDK
 export ANDROID_SDK=/Users/i.nagashima/Library/Android/sdk
@@ -96,13 +99,3 @@ export PATH=$PATH:/Users/i.nagashima/.fvm/flutter_sdk/bin
 
 # gnubin
 export PATH=$PATH:/usr/local/opt/coreutils/libexec/gnubin
-
-# エイリアス hitohaco-order
-alias hitohaco='cd ~/Desktop/jfd/src/hitohaco-order'
-alias common='cd ~/Desktop/jfd/src/hitohaco-order/packages/common'
-alias zzest='cd ~/Desktop/jfd/src/hitohaco-order/packages/zzest'
-alias h-pull='git pull origin develop/ver.1.2'
-#alias h-checkout='git checkout develop/phase1'
-
-# エイリアス society
-alias s-src='cd /Users/i.nagashima/Desktop/project/06.climb/01.society/src'
